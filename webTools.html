@@ -44,7 +44,7 @@
 
         <div class="nav-section">
           <p class="section-title">Images & Video</p>
-          <a href="/webTools/QR-code/">QR Code generator</a>
+          <a href="#" class="tool-link active" data-tool="qr-code">QR Code generator</a>
           <a href="#">WiFi QR generator</a>
           <a href="#">SVG placeholder</a>
         </div>
@@ -59,8 +59,32 @@
 
     <main class="content">
       <!-- Tool content goes here -->
-      <h1>QR Code Generator</h1>
-                        
+       <section id="qr-code" class="tool-content">
+            <h1>QR Code Generator</h1>
+        </section>
+
     </main>
   </div>
+
+  <script>
+     const toolLinks = document.querySelectorAll('.tool-link');
+  const toolContents = document.querySelectorAll('.tool-content');
+
+  toolLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      // Remove active class from all links and contents
+      toolLinks.forEach(l => l.classList.remove('active'));
+      toolContents.forEach(c => c.classList.remove('active'));
+
+      // Add active class to clicked link
+      link.classList.add('active');
+
+      // Show the related content section
+      const toolId = link.getAttribute('data-tool');
+      document.getElementById(toolId).classList.add('active');
+    });
+  });
+  </script>
 </body>

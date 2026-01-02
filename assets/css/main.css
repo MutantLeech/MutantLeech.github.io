@@ -2901,6 +2901,16 @@ input, select, textarea {
 		box-shadow: inset 0 0 0 2px #18bfef;
 	}
 
+
+	.tool-content {
+  display: none;
+  /* add padding/margin as needed */
+}
+
+.tool-content.active {
+  display: block;
+}
+
 /* Section/Article */
 
 	section.special, article.special {
