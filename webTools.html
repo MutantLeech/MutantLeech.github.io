@@ -121,7 +121,7 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
+    <script class="qr-code-Generator">
         function generateQRCode() {
             const text = document.getElementById("qr-text").value;
             const qrcodeContainer = document.getElementById("qrcode");
@@ -142,6 +142,30 @@
                 colorLight : "#ffffff",
             });
         }
+    </script>
+
+    <script>
+  const links = document.querySelectorAll('.tool-link');
+  const sections = document.querySelectorAll('.tool-content');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      const toolId = link.dataset.tool;
+
+      // hide all sections
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // show selected section
+      const activeSection = document.getElementById(toolId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+    });
+  });
     </script>
 
 </body>
