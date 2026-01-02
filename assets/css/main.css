@@ -1874,7 +1874,7 @@ body {
 			color: #717981;
 		}
 
-	#copyright {
+	#ending-footer {
 		color: #ffffff;
 		position: relative;
 		color: rgba(255, 255, 255, 0.25);
@@ -1892,9 +1892,14 @@ body {
 		z-index: 2;
 	}
 
-		#copyright input, #copyright select, #copyright textarea {
+		#ending-footer input, #ending-footer select, #ending-footer textarea {
 			color: #ffffff;
 		}
+	
+	#ending-list
+	{
+  		list-style-type: none;
+	}
 
 /* Main */
 
