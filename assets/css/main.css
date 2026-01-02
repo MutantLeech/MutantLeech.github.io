@@ -1097,20 +1097,21 @@ body {
   display: block;
 }
 
-.quote-container {
+#quote-container {
   width: 100%;
   text-align: center; /* centers the quote */
 }
 
 #saying {
-	width: 20%;
+	width: 50%;
   	font-size: 1.5rem;
   	font-style: italic;
   	margin-bottom: 0.5rem;
   	display: flex;
+	margin-left: 20px;
 }
 
-.author {
+#author {
   	display: center; /* allows shifting */
   	margin-left: 20px;     /* moves it slightly right */
   	font-size: 1rem;
