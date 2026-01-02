@@ -3619,7 +3619,7 @@ input, select, textarea {
 }
 
 .sidebar {
-  width: 240px;
+  width: 200px;
   background: #141414;
   padding: 16px;
   overflow-y: auto;
