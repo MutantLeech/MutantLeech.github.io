@@ -3815,7 +3815,7 @@ input, select, textarea {
 	#content {
 		background-color: #ffffff;
 		position: relative;
-		margin: 0 auto;
+		margin: 0;
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
