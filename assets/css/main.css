@@ -1118,7 +1118,7 @@ body {
 #author {
   font-size: 1rem;
   color: #555;
-  margin-left: 80px; /* desktop offset */
+  margin-left: 150px; /* desktop offset */
   margin-top: 0.5rem;
   font-style: italic;
   opacity: 0.85;
