@@ -1103,7 +1103,7 @@ body {
 }
 
 .saying {
-	width: 50%;
+	width: 20%;
   	font-size: 1.5rem;
   	font-style: italic;
   	margin-bottom: 0.5rem;
@@ -1112,7 +1112,7 @@ body {
 
 .author {
   display: inline-block; /* allows shifting */
-  margin-left: 70px;     /* moves it slightly right */
+  margin-left: 200px;     /* moves it slightly right */
   font-size: 1rem;
   color: #555;
 }
