@@ -1112,9 +1112,10 @@ body {
 
 .author {
   display: inline-block; /* allows shifting */
-  margin-left: 200px;     /* moves it slightly right */
+  margin-left: 20px;     /* moves it slightly right */
   font-size: 1rem;
   color: #555;
+	padding-bottom: .1rem;
 }
 
 /* Section/Article */
