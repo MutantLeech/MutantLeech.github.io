@@ -1100,18 +1100,18 @@ body {
 .quote-container {
   width: 100%;
   text-align: center; /* centers the quote */
-  display: flex;
 }
 
 .saying {
   font-size: 1.5rem;
   font-style: italic;
   margin-bottom: 0.5rem;
+  display: flex;
 }
 
 .author {
   display: inline-block; /* allows shifting */
-  margin-left: 60px;     /* moves it slightly right */
+  margin-left: 70px;     /* moves it slightly right */
   font-size: 1rem;
   color: #555;
 }
