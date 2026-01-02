@@ -1106,10 +1106,9 @@ body {
 	width: 50%;
   	font-size: 1.5rem;
   	font-style: italic;
-  	margin-bottom: 0.5rem;
   	display: flex;
 	text-align: center;
-	margin-left: 200px;
+	margin: 0 0 4rem 0
 }
 
 #author {
