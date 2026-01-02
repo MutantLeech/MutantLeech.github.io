@@ -1108,8 +1108,7 @@ body {
   	font-style: italic;
   	margin-bottom: 0.5rem;
   	display: flex;
-	margin-left: 0;
-	transform:translateY(-50%);
+	text-align: center;
 }
 
 #author {
