@@ -3612,6 +3612,9 @@ input, select, textarea {
 				}
 
 		}
+.tool-link {
+	font-size: 14px;
+}
 
 .app {
   display: flex;
@@ -3619,7 +3622,7 @@ input, select, textarea {
 }
 
 .sidebar {
-  width: 200px;
+  width: 190px;
   background: #141414;
   padding: 16px;
   overflow-y: auto;
