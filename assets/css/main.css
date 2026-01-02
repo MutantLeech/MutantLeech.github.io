@@ -2911,7 +2911,7 @@ input, select, textarea {
 		cursor: default;
 	}
 
-		header > .date {
+		header > .title {
 			display: block;
 			font-size: 0.8rem;
 			height: 1;
@@ -2958,12 +2958,12 @@ input, select, textarea {
 				text-align: center;
 			}
 
-			header.major > .date {
+			header.major > .title {
 				font-size: 1rem;
 				margin: 0 0 4rem 0;
 			}
 
-				header.major > .date:before, header.major > .date:after {
+				header.major > .title:before, header.major > .title:after {
 					content: '';
 					display: block;
 					position: absolute;
@@ -2972,11 +2972,11 @@ input, select, textarea {
 					border-top: solid 2px;
 				}
 
-				header.major > .date:before {
+				header.major > .title:before {
 					left: 0;
 				}
 
-				header.major > .date:after {
+				header.major > .title:after {
 					right: 0;
 				}
 
@@ -2996,7 +2996,7 @@ input, select, textarea {
 
 		}
 
-	header.major .date:before, header.major .date:after {
+	header.major .title:before, header.major .title:after {
 		border-top-color: #eeeeee;
 	}
 
@@ -3831,7 +3831,7 @@ input, select, textarea {
 			padding: 8rem 8rem 6rem 8rem ;
 		}
 
-			#main > .post header.major > .date {
+			#main > .post header.major > .title {
 				margin-top: -2rem;
 			}
 
@@ -3859,7 +3859,7 @@ input, select, textarea {
 					padding: 4rem 2rem 2rem 2rem ;
 				}
 
-					#main > .post header.major > .date {
+					#main > .post header.major > .title {
 						margin-top: -1rem;
 						margin-bottom: 2rem;
 					}
@@ -4179,7 +4179,7 @@ input, select, textarea {
 			box-shadow: inset 0 0 0 2px #18bfef;
 		}
 
-		#footer header.major .date:before, #footer header.major .date:after {
+		#footer header.major .title:before, #footer header.major .title:after {
 			border-top-color: #e2e2e2;
 		}
 
