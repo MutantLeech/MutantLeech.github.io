@@ -64,8 +64,6 @@ body {
 			transition: none !important;
 		}
 
-/* Type */
-
 	html {
 		font-size: 16pt;
 	}
@@ -181,19 +179,6 @@ body {
 		top: 0.5rem;
 	}
 
-	sup {
-		font-size: 0.8rem;
-		position: relative;
-		top: -0.5rem;
-	}
-
-	blockquote {
-		border-left: solid 4px;
-		font-style: italic;
-		margin: 0 0 2rem 0;
-		padding: 0.5rem 0 0.5rem 2rem;
-	}
-
 	code {
 		border: solid 2px;
 		font-family: "Courier New", monospace;
@@ -202,29 +187,6 @@ body {
 		padding: 0.25rem 0.65rem;
 	}
 
-	pre {
-		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
-		font-size: 0.9rem;
-		margin: 0 0 2rem 0;
-	}
-
-		pre code {
-			display: block;
-			line-height: 1.75;
-			padding: 1rem 1.5rem;
-			overflow-x: auto;
-		}
-
-	hr {
-		border: 0;
-		border-bottom: solid 2px;
-		margin: 3rem 0;
-	}
-
-		hr.major {
-			margin: 5rem 0;
-		}
 
 	.align-left {
 		text-align: left;
