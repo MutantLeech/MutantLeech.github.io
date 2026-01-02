@@ -1111,11 +1111,13 @@ body {
 }
 
 .author {
-  display: inline-block; /* allows shifting */
-  margin-left: 20px;     /* moves it slightly right */
-  font-size: 1rem;
-  color: #555;
+  	display: center; /* allows shifting */
+  	margin-left: 20px;     /* moves it slightly right */
+  	font-size: 1rem;
+  	color: #555;
 	padding-bottom: .1rem;
+	line-height: 1.2px;
+	
 }
 
 /* Section/Article */
