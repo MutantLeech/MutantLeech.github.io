@@ -1335,13 +1335,7 @@ body {
 			margin-bottom: 0;
 		}
 
-		@media screen and (max-width: 980px) {
-
-			#nav {
-				display: flex;
-			}
-
-		}
+		
 
 	#content {
 		background-color: #ffffff;
