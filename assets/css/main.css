@@ -1099,26 +1099,43 @@ body {
 
 .quote-container {
   width: 100%;
-  text-align: center; /* centers the quote */
-  justify-content: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
 
+/* Quote text */
 #saying {
-	width: 50%;
-  	font-size: 1.5rem;
-  	font-style: italic;
-	display: flex;
+  width: 50%;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
 }
 
+/* Author */
 #author {
-  	display: flex; /* allows shifting */
-  	margin-left: 20px;     /* moves it slightly right */
-  	font-size: 1rem;
-  	color: #555;
-	padding-bottom: .1rem;
-	line-height: 1.2px;
-	
+  font-size: 1rem;
+  color: #555;
+  margin-left: 60px; /* desktop offset */
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  #saying {
+    width: 90%;       /* wider quote on mobile */
+    font-size: 1.2rem;
+  }
+
+  #author {
+    margin-left: 0;   /* center author on mobile */
+    text-align: center;
+    font-size: 0.95rem;
+  }
 }
 
 /* Section/Article */
