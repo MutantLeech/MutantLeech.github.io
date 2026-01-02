@@ -1108,8 +1108,6 @@ body {
 	width: 50%;
   	font-size: 1.5rem;
   	font-style: italic;
-  	display: flex;
-  	justify-content: center;
 }
 
 #author {
@@ -1119,7 +1117,6 @@ body {
   	color: #555;
 	padding-bottom: .1rem;
 	line-height: 1.2px;
-	display: flex;
 	
 }
 
