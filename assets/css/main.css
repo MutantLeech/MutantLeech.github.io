@@ -1101,7 +1101,7 @@ body {
   width: 100%;
   text-align: center; /* centers the quote */
   justify-content: center;
-  display: inline;
+  display: flex;
 }
 
 #saying {
@@ -1112,7 +1112,7 @@ body {
 }
 
 #author {
-  	display: center; /* allows shifting */
+  	display: flex; /* allows shifting */
   	margin-left: 20px;     /* moves it slightly right */
   	font-size: 1rem;
   	color: #555;
