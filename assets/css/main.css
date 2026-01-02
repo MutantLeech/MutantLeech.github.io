@@ -1870,6 +1870,9 @@ body {
 		max-width: 72rem;
 		z-index: 2;
 	}
+		#footer input, #footer select, #footer textarea {
+			color: #717981;
+		}
 
 /* Main */
 
