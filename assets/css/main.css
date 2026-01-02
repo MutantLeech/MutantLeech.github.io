@@ -3612,6 +3612,11 @@ input, select, textarea {
 				}
 
 		}
+#tree {
+	display: flex;
+  	justify-content: center;
+}
+
 .tool-link {
 	font-size: 14px;
 }
