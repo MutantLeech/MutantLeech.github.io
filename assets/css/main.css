@@ -1102,7 +1102,7 @@ body {
   text-align: center; /* centers the quote */
 }
 
-.saying {
+#saying {
 	width: 20%;
   	font-size: 1.5rem;
   	font-style: italic;
