@@ -1100,6 +1100,8 @@ body {
 #quote-container {
   width: 100%;
   text-align: center; /* centers the quote */
+  justify-content: center;
+  display: flex;
 }
 
 #saying {
