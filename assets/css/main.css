@@ -1855,6 +1855,11 @@ body {
 
 		}
 
+	#footer {
+	padding: 1.5rem;
+	text-align: center;
+	}
+
 /* Main */
 
 	#main {
