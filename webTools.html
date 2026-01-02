@@ -70,6 +70,9 @@
         </section>
        <section id="qr-code" class="tool-content">
             <h1>QR Code Generator</h1>
+            <input type="text" id="qr-text" placeholder="Enter text or URL" size="30">
+            <button onclick="generateQRCode()">Generate QR Code</button>
+            <div id="qrcode"></div>
         </section>
         <section id="wifi-qr" class="tool-content">
             <h1>Wifi QR Code Generator</h1>
@@ -108,4 +111,28 @@
     });
   });
   </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            const text = document.getElementById("qr-text").value;
+            const qrcodeContainer = document.getElementById("qrcode");
+
+            // Clear previous QR code
+            qrcodeContainer.innerHTML = "";
+
+            if(text.trim() === "") {
+                alert("Please enter some text or URL!");
+                return;
+            }
+
+            new QRCode(qrcodeContainer, {
+                text: text,
+                width: 200,
+                height: 200,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+            });
+        }
+    </script>
 </body>
