@@ -84,6 +84,18 @@
         </section>
         <section id="wifi-qr" class="tool-content">
             <h1>Wifi QR Code Generator</h1>
+            <input id="wifi-ssid" placeholder="WiFi name (SSID)">
+            <input id="wifi-password" placeholder="Password">
+            
+            <select id="wifi-security">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">No Password</option>
+            </select>
+
+            <button onclick="generateWifiQRCode()">Generate QR</button>
+
+            <div id="wifi-qrcode"></div>
         </section>
         <section id="svg" class="tool-content">
             <h1>SVG</h1>
@@ -144,29 +156,36 @@
         }
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script>
-  const links = document.querySelectorAll('.tool-link');
-  const sections = document.querySelectorAll('.tool-content');
+    function generateWifiQRCode() {
+        const ssid = document.getElementById("wifi-ssid").value;
+        const password = document.getElementById("wifi-password").value;
+        const security = document.getElementById("wifi-security").value;
+        const qrcodeContainer = document.getElementById("wifi-qrcode");
 
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
+        // Clear previous QR
+        qrcodeContainer.innerHTML = "";
 
-      const toolId = link.dataset.tool;
+        if (ssid.trim() === "") {
+        alert("Please enter the WiFi name (SSID)");
+        return;
+        }
 
-      // hide all sections
-      sections.forEach(section => {
-        section.style.display = 'none';
-      });
+        // WiFi QR format
+        const wifiString = `WIFI:T:${security};S:${ssid};P:${password};;`;
 
-      // show selected section
-      const activeSection = document.getElementById(toolId);
-      if (activeSection) {
-        activeSection.style.display = 'block';
-      }
-    });
-  });
+        new QRCode(qrcodeContainer, {
+        text: wifiString,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        });
+    }
     </script>
+
 
 </body>
 </body>
