@@ -3820,6 +3820,12 @@ input, select, textarea {
 		max-width: 72rem;
 		z-index: 2;
 	}
+		#content > * {
+			padding: 4rem 4rem 2rem 4rem;
+			border-top: solid 2px #eeeeee;
+			margin: 0;
+
+		}
 
 /* Main */
 
