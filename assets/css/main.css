@@ -1097,6 +1097,24 @@ body {
   display: block;
 }
 
+.quote-container {
+  width: 100%;
+  text-align: center; /* centers the quote */
+}
+
+.saying {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  display: inline-block; /* allows shifting */
+  margin-left: 60px;     /* moves it slightly right */
+  font-size: 1rem;
+  color: #555;
+}
+
 /* Section/Article */
 
 	section.special, article.special {
