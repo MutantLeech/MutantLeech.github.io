@@ -1103,10 +1103,11 @@ body {
 }
 
 .saying {
-  font-size: 1.5rem;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  display: flex;
+	width: 50%;
+  	font-size: 1.5rem;
+  	font-style: italic;
+  	margin-bottom: 0.5rem;
+  	display: flex;
 }
 
 .author {
