@@ -3613,8 +3613,19 @@ input, select, textarea {
 
 		}
 #tree {
-  	justify-content: center;
+	display: flex;
+  	justify-content: center; /* Centers the list horizontally in the container */
+  	align-items: center;     /* Centers the list vertically in the container */
+  	height: 100vh; 
 }
+	#tree > ul {
+		padding: 0;
+  		list-style-position: inside;
+	}
+	
+	#tree > li {
+		text-align: center;
+	}
 
 .tool-link {
 	font-size: 14px;
