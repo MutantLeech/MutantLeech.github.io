@@ -3618,7 +3618,7 @@ input, select, textarea {
   	margin: 0;
   	text-align: center; /* center the text */
   	font-size: 16px;
-  	line-height: .5;
+  	line-height: 1;
 }
 
 .storage-title {
