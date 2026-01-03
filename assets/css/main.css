@@ -596,7 +596,7 @@ body {
 		text-align: center;
   /* add padding/margin as needed */
 		max-height: calc(100vh); /* adjust if needed */
-		
+		overflow-y: auto;
 		padding-right: 1rem; /* room for scrollbar */
 	}	
 
@@ -1150,7 +1150,7 @@ body {
 
 .app {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .sidebar {
@@ -1350,21 +1350,18 @@ body {
 		}
 
 	#content {
-		flex: 1;
-		max-width: 72rem;
 		background-color: #ffffff;
 		position: relative;
-		margin: 0 auto;
+		margin: 0;
 		width: calc(100% - 4rem);
+		max-width: 72rem;
 		z-index: 2;
-		padding: 2rem;
-		box-sizing: border-box;
 	}
 		#content > * {
-			padding: 2rem;
+			padding: 4rem 4rem 2rem 4rem;
 			border-top: solid 2px #eeeeee;
 			margin: 0;
-			width: 100%;
+
 		}
 
 	#footer {
@@ -1466,10 +1463,8 @@ body {
 
 	.status-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(192.5px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	gap: 1rem;
-	width: 100%;
-	box-sizing: border-box;
 	}
 
 	.status-card {
@@ -1518,77 +1513,7 @@ body {
 	}
 
 
-	/* Hide sidebar toggle button by default */
-#sidebar-toggle {
-  display: none;
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  background: transparent;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1001; /* above sidebar */
-}
-
-/* Sidebar */
-.sidebar {
-  width: 192.5px;
-  background: #222;
-  height: 100vh;
-  overflow-y: auto;
-  position: fixed; /* so it can slide in/out */
-  left: 0;
-  top: 0;
-  transition: transform 0.3s ease;
-}
-
-/* Sidebar hidden state (slide off screen) */
-.sidebar.closed {
-  transform: translateX(-100%);
-}
-
-/* Main content pushes right when sidebar visible */
-.app {
-  margin-left: 192.5px;
-  transition: margin-left 0.3s ease;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  /* Show toggle button on small screens */
-  #sidebar-toggle {
-    display: block;
-  }
-
-  /* Sidebar is hidden by default */
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  /* When sidebar is open */
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
-  /* Main content full width when sidebar hidden */
-  .app {
-    margin-left: 0;
-  }
-
-  /* Optionally add overlay when sidebar open */
-  .overlay {
-    display: none;
-  }
-
-  .overlay.active {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-}
+	
 
 
 
