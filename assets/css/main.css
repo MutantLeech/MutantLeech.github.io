@@ -1433,6 +1433,9 @@ body {
 		white-space: nowrap;
 	}
 
+	.qr-text {
+		color: #212931;
+	}
 /* Main */
 
 	#main {
