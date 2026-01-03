@@ -1466,8 +1466,10 @@ body {
 
 	.status-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(192.5px, 1fr));
 	gap: 1rem;
+	width: 100%;
+	box-sizing: border-box;
 	}
 
 	.status-card {
