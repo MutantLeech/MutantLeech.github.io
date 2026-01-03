@@ -592,13 +592,14 @@ body {
 
 
 	.tool-content {
-  display: none;
+  		display: none;
+		text-align: center;
   /* add padding/margin as needed */
-}
+	}	
 
-.tool-content.active {
-  display: block;
-}
+	.tool-content.active {
+  		display: block;
+	}
 
 .quote-container {
   width: 100%;
