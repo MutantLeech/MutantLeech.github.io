@@ -1441,6 +1441,7 @@ body {
 	
 	#wifi-qrcode,
 	#qrcode {
+		align-items: center;
 		display: flex;
 		justify-content: center;
 		margin-top: 1.5rem;
