@@ -1517,7 +1517,7 @@ body {
 		display: flex;
 		justify-content: center;
 	}
-	#token-gen.token-box {
+	#token-gen .token-box {
 		background: #2a2a2a;
 		padding: 20px;
 		border-radius: 10px;
