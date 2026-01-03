@@ -72,7 +72,88 @@
     <div id="content">
       <!-- Tool content goes here -->
        <section id="http-status" class="tool-content">
-            <h1>HTTP Status</h1>
+            <h2>HTTP Status</h2>
+
+            <!--1xx-->
+            <div class="status-category">
+                <h3>1xx - Informational</h3>
+                <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-code">100</div>
+                        <div class="status-name">Continue</div>
+                        <p>Waiting for the client to emit the body of the request.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">101</div>
+                        <div class="status-name">Switching Protocols</div>
+                        <p>The server has agreed to change protocol.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">102</div>
+                        <div class="status-name">Processing</div>
+                        <p>The server is processing the request, but no response is available yet.</p>
+                        <span class="badge webdav">WebDAV</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">103</div>
+                        <div class="status-name">Early Hints</div>
+                        <p>The server returns some response headers before final HTTP message.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- 2xx -->
+                <div class="status-category">
+                    <h3>2xx – Success</h3>
+                    <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-code">200</div>
+                        <div class="status-name">OK</div>
+                        <p>Standard response for successful HTTP requests.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">201</div>
+                        <div class="status-name">Created</div>
+                        <p>The request has been fulfilled, resulting in the creation of a new resource.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">204</div>
+                        <div class="status-name">No Content</div>
+                        <p>The server successfully processed the request and is not returning any content.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- 4xx -->
+                <div class="status-category">
+                    <h3>4xx – Client Error</h3>
+                    <div class="status-grid">
+                    <div class="status-card">
+                        <div class="status-code">404</div>
+                        <div class="status-name">Not Found</div>
+                        <p>The requested resource could not be found.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-code">418</div>
+                        <div class="status-name">I'm a teapot</div>
+                        <p>The server refuses the attempt to brew coffee with a teapot.</p>
+                        <span class="badge http">HTTP</span>
+                    </div>
+                    </div>
+            </div>
         </section>
         <section id="json-diff" class="tool-content">
             <h1>JSON</h1>
