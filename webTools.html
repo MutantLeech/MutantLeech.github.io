@@ -94,14 +94,16 @@
             <div>
             <input id="wifi-password" placeholder="Password">
             </div>
-            
+
             <select id="wifi-security">
                 <option value="WPA">WPA/WPA2</option>
                 <option value="WEP">WEP</option>
                 <option value="nopass">No Password</option>
             </select>
-
+            
+            <div>
             <button onclick="generateWifiQRCode()">Generate QR</button>
+            </div>
 
             <div id="wifi-qrcode"></div>
         </section>
