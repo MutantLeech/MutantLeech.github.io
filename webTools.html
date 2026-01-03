@@ -188,15 +188,59 @@
                     <h3>3xx – Redirection</h3>
                     <div class="status-grid">
 
-                        <div class="status-card"><div class="status-code">300</div><div class="status-name">Multiple Choices</div><p>Multiple options available.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">301</div><div class="status-name">Moved Permanently</div><p>Resource permanently moved.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">302</div><div class="status-name">Found</div><p>Temporary redirect.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">303</div><div class="status-name">See Other</div><p>Redirect using GET.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">304</div><div class="status-name">Not Modified</div><p>Resource unchanged.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">305</div><div class="status-name">Use Proxy</div><p>Must be accessed via proxy.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">306</div><div class="status-name">Switch Proxy</div><p>Deprecated.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">307</div><div class="status-name">Temporary Redirect</div><p>Repeat request elsewhere.</p><span class="badge http">HTTP</span></div>
-                        <div class="status-card"><div class="status-code">308</div><div class="status-name">Permanent Redirect</div><p>Future requests use new URI.</p><span class="badge http">HTTP</span></div>
+                        <div class="status-card">
+                            <div class="status-code">300</div>
+                            <div class="status-name">Multiple Choices</div>
+                            <p>Multiple options available.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">301</div>
+                            <div class="status-name">Moved Permanently</div>
+                            <p>Resource permanently moved.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">302</div>
+                            <div class="status-name">Found</div>
+                            <p>Temporary redirect.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">303</div>
+                            <div class="status-name">See Other</div>
+                            <p>Redirect using GET.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">304</div>
+                            <div class="status-name">Not Modified</div>
+                            <p>Resource unchanged.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">305</div>
+                            <div class="status-name">Use Proxy</div>
+                            <p>Must be accessed via proxy.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">306</div>
+                            <div class="status-name">Switch Proxy</div>
+                            <p>Deprecated.</p>
+                            <span class="badge http">HTTP</span></div>
+                        <div class="status-card">
+                            <div class="status-code">307</div>
+                            <div class="status-name">Temporary Redirect</div>
+                            <p>Repeat request elsewhere.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">308</div>
+                            <div class="status-name">Permanent Redirect</div>
+                            <p>Future requests use new URI.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
 
                     </div>
                 </div>
@@ -205,20 +249,153 @@
                 <div class="status-category">
                     <h3>4xx – Client Error</h3>
                     <div class="status-grid">
-                    <div class="status-card">
-                        <div class="status-code">404</div>
-                        <div class="status-name">Not Found</div>
-                        <p>The requested resource could not be found.</p>
-                        <span class="badge http">HTTP</span>
-                    </div>
 
-                    <div class="status-card">
-                        <div class="status-code">418</div>
-                        <div class="status-name">I'm a teapot</div>
-                        <p>The server refuses the attempt to brew coffee with a teapot.</p>
-                        <span class="badge http">HTTP</span>
+                        <div class="status-card">
+                            <div class="status-code">400</div>
+                            <div class="status-name">Bad Request</div>
+                            <p>Invalid request syntax.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">401</div>
+                            <div class="status-name">Unauthorized</div>
+                            <p>Authentication required.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">402</div>
+                            <div class="status-name">Payment Required</div>
+                            <p>Reserved for future use.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">403</div>
+                            <div class="status-name">Forbidden</div>
+                            <p>Access denied.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">404</div>
+                            <div class="status-name">Not Found</div>
+                            <p>Resource not found.</p>
+                            <span class="badge http">HTTP</span></div>
+                        <div class="status-card">
+                            <div class="status-code">405</div>
+                            <div class="status-name">Method Not Allowed</div>
+                            <p>Method not supported.</p>
+                            <span class="badge http">HTTP</span></div>
+                        <div class="status-card">
+                            <div class="status-code">406</div>
+                            <div class="status-name">Not Acceptable</div>
+                            <p>Content unacceptable.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">407</div>
+                            <div class="status-name">Proxy Authentication Required</div>
+                            <p>Proxy auth required.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">408</div>
+                            <div class="status-name">Request Timeout</div>
+                            <p>Request timed out.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">409</div>
+                            <div class="status-name">Conflict</div>
+                            <p>Request conflict.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">410</div>
+                            <div class="status-name">Gone</div>
+                            <p>Resource permanently gone.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">418</div>
+                            <div class="status-name">I'm a teapot</div>
+                            <p>The server refuses to brew coffee.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">429</div>
+                            <div class="status-name">Too Many Requests</div>
+                            <p>Rate limit exceeded.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">451</div>
+                            <div class="status-name">Unavailable For Legal Reasons</div>
+                            <p>Blocked by legal demand.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+
                     </div>
+                </div>
+                <div class="status-category">
+                    <h3>5xx – Server Error</h3>
+                    <div class="status-grid">
+
+                        <div class="status-card">
+                            <div class="status-code">500</div>
+                            <div class="status-name">Internal Server Error</div>
+                            <p>Unexpected server condition.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">501</div>
+                            <div class="status-name">Not Implemented</div>
+                            <p>Method not supported.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">502</div>
+                            <div class="status-name">Bad Gateway</div>
+                            <p>Invalid upstream response.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">503</div>
+                            <div class="status-name">Service Unavailable</div>
+                            <p>Server overloaded or down.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">504</div>
+                            <div class="status-name">Gateway Timeout</div>
+                            <p>Upstream timeout.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">505</div>
+                            <div class="status-name">HTTP Version Not Supported</div>
+                            <p>HTTP version unsupported.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">507</div>
+                            <div class="status-name">Insufficient Storage</div>
+                            <p>Server storage exhausted.</p>
+                            <span class="badge webdav">WebDAV</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">508</div>
+                            <div class="status-name">Loop Detected</div>
+                            <p>Infinite loop detected.</p>
+                            <span class="badge webdav">WebDAV</span>
+                        </div>
+                        <div class="status-card">
+                            <div class="status-code">511</div>
+                            <div class="status-name">Network Authentication Required</div>
+                            <p>Network authentication required.</p>
+                            <span class="badge http">HTTP</span>
+                        </div>
+
                     </div>
+                </div>
             </div>
         </section>
         <section id="json-diff" class="tool-content">
