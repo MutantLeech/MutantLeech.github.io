@@ -1434,7 +1434,9 @@ body {
 		white-space: nowrap;
 	}
 	.wifi-qrcode {
-		text-align: center;
+		display: flex;
+		justify-content: center;
+		margin-top: 1.5rem;
 	}
 	.qr-text {
 		color: #212931;
