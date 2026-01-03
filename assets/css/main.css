@@ -601,7 +601,7 @@ body {
 	}	
 
 	.tool-content.active {
-  		display: flex;
+  		display: block;
 	}
 
 .quote-container {
@@ -1356,8 +1356,6 @@ body {
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
-		display: flex;
-		justify-content: center;
 	}
 		#content > * {
 			padding: 4rem 4rem 2rem 4rem;
@@ -1515,10 +1513,6 @@ body {
 	}
 
 
-	#token-gen {
-		display: flex;
-		justify-content: center;
-	}
 	.token-box {
 		background: #2a2a2a;
 		padding: 20px;
