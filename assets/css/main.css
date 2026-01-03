@@ -1449,6 +1449,10 @@ body {
 	.qr-text {
 		color: #212931;
 	}
+
+	.wifi-security {
+		max-width: 100px;
+	}
 	#tools-title {
 		text-align: center;
 	}
