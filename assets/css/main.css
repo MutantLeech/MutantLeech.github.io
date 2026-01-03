@@ -1528,7 +1528,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
+  width: 200px;
   background: #222;
   height: 100vh;
   overflow-y: auto;
@@ -1545,7 +1545,7 @@ body {
 
 /* Main content pushes right when sidebar visible */
 .app {
-  margin-left: 220px;
+  margin-left: 200px;
   transition: margin-left 0.3s ease;
 }
 
