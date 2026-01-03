@@ -1433,7 +1433,7 @@ body {
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
-	.wifi-qrcode {
+	#wifi-qrcode {
 		display: flex;
 		justify-content: center;
 		margin-top: 1.5rem;
