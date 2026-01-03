@@ -596,7 +596,7 @@ body {
 		text-align: center;
   /* add padding/margin as needed */
 		max-height: calc(100vh); /* adjust if needed */
-		overflow-y: auto;
+		
 		padding-right: 1rem; /* room for scrollbar */
 	}	
 
@@ -1547,7 +1547,10 @@ body {
 }
 
 /* Main content pushes right when sidebar visible */
-
+.app {
+  margin-left: 192.5px;
+  transition: margin-left 0.3s ease;
+}
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
