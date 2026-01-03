@@ -595,7 +595,7 @@ body {
   		display: none;
 		text-align: center;
   /* add padding/margin as needed */
-		max-height: calc(100vh - 8rem); /* adjust if needed */
+		max-height: calc(100vh - 7rem); /* adjust if needed */
 		overflow-y: auto;
 		padding-right: 1rem; /* room for scrollbar */
 	}	
