@@ -1547,10 +1547,7 @@ body {
 }
 
 /* Main content pushes right when sidebar visible */
-.app {
-  margin-left: 192.5px;
-  transition: margin-left 0.3s ease;
-}
+
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
