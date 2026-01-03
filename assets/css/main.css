@@ -1435,7 +1435,7 @@ body {
 	}
 	
 	#wifi-qrcode,
-	#qr-code {
+	#qrcode {
 		display: flex;
 		justify-content: center;
 		margin-top: 1.5rem;
