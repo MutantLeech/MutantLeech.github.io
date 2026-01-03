@@ -26,9 +26,6 @@
 						</ul>
 					</nav>
             <div class="app">
-                <button id="sidebar-toggle" aria-label="Toggle sidebar">
-                    &#9776; <!-- hamburger icon -->
-                </button>
                 <aside class="sidebar">
                 <h2 class="sidebar-title">Tools</h2>
 
@@ -531,45 +528,7 @@
     }
     </script>
 
-    <script>
-        const sidebarToggle = document.getElementById('sidebar-toggle');
-        const sidebar = document.querySelector('.sidebar');
-
-        // Optional overlay to close sidebar when clicking outside
-        let overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        document.body.appendChild(overlay);
-
-        function closeSidebar() {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('active');
-        }
-
-        function openSidebar() {
-            sidebar.classList.add('open');
-            overlay.classList.add('active');
-        }
-
-        sidebarToggle.addEventListener('click', () => {
-            if (sidebar.classList.contains('open')) {
-            closeSidebar();
-            } else {
-            openSidebar();
-            }
-        });
-
-        overlay.addEventListener('click', () => {
-            closeSidebar();
-        });
-
-        // Optional: Close sidebar on window resize if desktop size
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('active');
-            }
-        });
-    </script>
+    
 
     <script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
