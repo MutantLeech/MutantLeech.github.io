@@ -1511,6 +1511,84 @@ body {
 	background: #1565c0;
 	color: #fff;
 	}
+
+
+	/* Hide sidebar toggle button by default */
+#sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1001; /* above sidebar */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #222;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed; /* so it can slide in/out */
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar hidden state (slide off screen) */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Main content pushes right when sidebar visible */
+.app {
+  margin-left: 260px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  /* Show toggle button on small screens */
+  #sidebar-toggle {
+    display: block;
+  }
+
+  /* Sidebar is hidden by default */
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* When sidebar is open */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Main content full width when sidebar hidden */
+  .app {
+    margin-left: 0;
+  }
+
+  /* Optionally add overlay when sidebar open */
+  .overlay {
+    display: none;
+  }
+
+  .overlay.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}
+
+
+
+
+
 /* Main */
 
 	#main {
