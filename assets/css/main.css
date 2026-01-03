@@ -601,7 +601,7 @@ body {
 	}	
 
 	.tool-content.active {
-  		display: block;
+  		display: flex;
 	}
 
 .quote-container {
@@ -1513,11 +1513,7 @@ body {
 	}
 
 
-	#token-gen {
-		display: flex;
-		justify-content: center;
-	}
-	#token-gen .token-box {
+	.token-box {
 		background: #2a2a2a;
 		padding: 20px;
 		border-radius: 10px;
