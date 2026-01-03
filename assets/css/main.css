@@ -1356,6 +1356,8 @@ body {
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+		display: flex;
+		justify-content: center;
 	}
 		#content > * {
 			padding: 4rem 4rem 2rem 4rem;
