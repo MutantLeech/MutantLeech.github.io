@@ -417,4 +417,68 @@
 
 });
 
+
+const hashAlgorithms = [
+    "SHA-1",
+    "SHA-224",
+    "SHA-256",
+    "SHA-384",
+    "SHA-512"
+];
+
+// ---------- Helpers ----------
+function bufferToHex(buffer) {
+    return [...new Uint8Array(buffer)]
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
+
+function bufferToBase64(buffer) {
+    return btoa(String.fromCharCode(...new Uint8Array(buffer)));
+}
+
+function bufferToBase64Url(buffer) {
+    return bufferToBase64(buffer)
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, "");
+}
+
+function bufferToBinary(buffer) {
+    return [...new Uint8Array(buffer)]
+        .map(b => b.toString(2).padStart(8, "0"))
+        .join(" ");
+}
+
+// ---------- Main ----------
+document.getElementById("hash-generate").addEventListener("click", async () => {
+    const input = document.getElementById("hash-input").value;
+    const output = document.getElementById("hash-output");
+
+    output.innerHTML = "";
+
+    if (!input) return;
+
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+
+    for (const algo of hashAlgorithms) {
+        try {
+            const hashBuffer = await crypto.subtle.digest(algo, data);
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${algo}</td>
+                <td>${bufferToHex(hashBuffer)}</td>
+                <td>${bufferToBase64(hashBuffer)}</td>
+                <td>${bufferToBase64Url(hashBuffer)}</td>
+                <td>${bufferToBinary(hashBuffer)}</td>
+            `;
+            output.appendChild(row);
+        } catch (e) {
+            console.warn(`Algorithm not supported: ${algo}`);
+        }
+    }
+});
+
 })(jQuery);
