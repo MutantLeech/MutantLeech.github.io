@@ -594,6 +594,9 @@ body {
 	.tool-content {
   		display: none;
 		text-align: center;
+		position: relative;
+		margin: 0 auto;
+		
   /* add padding/margin as needed */
 		max-height: calc(100vh); /* adjust if needed */
 		overflow-y: auto;
