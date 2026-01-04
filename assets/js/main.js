@@ -1,9 +1,3 @@
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function($) {
 
 	var	$window = $(window),
@@ -254,5 +248,173 @@
 			});
 
 		}
+
+		document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       TOKEN GENERATOR
+    ===================================================== */
+    const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+    const numberChars = "0123456789";
+    const symbolChars = "!@#$%^&*()-_=+[]{};:,.<>?/";
+
+    const lengthSlider = document.getElementById("token-length");
+    const lengthValue = document.getElementById("length-value");
+    const tokenOutput = document.getElementById("token-output");
+
+    function generateToken() {
+        if (!lengthSlider || !tokenOutput) return;
+
+        let chars = "";
+        if (document.getElementById("opt-upper")?.checked) chars += upperChars;
+        if (document.getElementById("opt-lower")?.checked) chars += lowerChars;
+        if (document.getElementById("opt-numbers")?.checked) chars += numberChars;
+        if (document.getElementById("opt-symbols")?.checked) chars += symbolChars;
+
+        if (!chars) {
+            tokenOutput.value = "";
+            return;
+        }
+
+        let token = "";
+        for (let i = 0; i < lengthSlider.value; i++) {
+            token += chars[Math.floor(Math.random() * chars.length)];
+        }
+
+        tokenOutput.value = token;
+    }
+
+    lengthSlider?.addEventListener("input", () => {
+        lengthValue.textContent = lengthSlider.value;
+        generateToken();
+    });
+
+    document.querySelectorAll(".options input").forEach(cb =>
+        cb.addEventListener("change", generateToken)
+    );
+
+    document.getElementById("regen-token")?.addEventListener("click", generateToken);
+    document.getElementById("copy-token")?.addEventListener("click", () => {
+        navigator.clipboard.writeText(tokenOutput.value);
+    });
+
+    generateToken();
+
+
+    /* =====================================================
+       TOOL NAVIGATION
+    ===================================================== */
+    const toolLinks = document.querySelectorAll(".tool-link");
+    const toolContents = document.querySelectorAll(".tool-content");
+
+    toolLinks.forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+
+            toolLinks.forEach(l => l.classList.remove("active"));
+            toolContents.forEach(c => c.classList.remove("active"));
+
+            link.classList.add("active");
+            const toolId = link.dataset.tool;
+            document.getElementById(toolId)?.classList.add("active");
+        });
+    });
+
+
+    /* =====================================================
+       SIDEBAR TOGGLE (MOBILE)
+    ===================================================== */
+    const toolsToggle = document.getElementById("tools-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    toolsToggle?.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".tool-link").forEach(link => {
+        link.addEventListener("click", () => sidebar.classList.remove("open"));
+    });
+
+
+    /* =====================================================
+       QR CODE GENERATOR
+    ===================================================== */
+    window.generateQRCode = function () {
+        const text = document.getElementById("qr-text").value;
+        const container = document.getElementById("qrcode");
+
+        container.innerHTML = "";
+        if (!text.trim()) return alert("Please enter text or URL");
+
+        new QRCode(container, {
+            text,
+            width: 200,
+            height: 200,
+            colorDark: "#000",
+            colorLight: "#fff"
+        });
+    };
+
+
+    /* =====================================================
+       WIFI QR CODE
+    ===================================================== */
+    window.generateWifiQRCode = function () {
+        const ssid = document.getElementById("wifi-ssid").value;
+        const password = document.getElementById("wifi-password").value;
+        const security = document.getElementById("wifi-security").value;
+        const container = document.getElementById("wifi-qrcode");
+
+        container.innerHTML = "";
+        if (!ssid.trim()) return alert("Please enter SSID");
+
+        const wifiString = `WIFI:T:${security};S:${ssid};P:${password};;`;
+
+        new QRCode(container, {
+            text: wifiString,
+            width: 200,
+            height: 200,
+            colorDark: "#000",
+            colorLight: "#fff"
+        });
+    };
+
+
+    /* =====================================================
+       HASH TEXT TOOL (READY)
+    ===================================================== */
+    const hashButton = document.getElementById("hash-generate");
+    const hashInput = document.getElementById("hash-input");
+    const hashOutput = document.getElementById("hash-output");
+
+    const hashAlgorithms = ["SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"];
+
+    const toHex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+    const toBase64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+    const toBase64Url = buf => toBase64(buf).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    const toBinary = buf => [...new Uint8Array(buf)].map(b => b.toString(2).padStart(8, "0")).join(" ");
+
+    hashButton?.addEventListener("click", async () => {
+        hashOutput.innerHTML = "";
+        if (!hashInput.value) return;
+
+        const data = new TextEncoder().encode(hashInput.value);
+
+        for (const algo of hashAlgorithms) {
+            const hash = await crypto.subtle.digest(algo, data);
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${algo}</td>
+                <td>${toHex(hash)}</td>
+                <td>${toBase64(hash)}</td>
+                <td>${toBase64Url(hash)}</td>
+                <td>${toBinary(hash)}</td>
+            `;
+            hashOutput.appendChild(row);
+        }
+    });
+
+});
 
 })(jQuery);
