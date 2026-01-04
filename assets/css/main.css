@@ -1360,9 +1360,10 @@ body {
 		background-color: #ffffff;
 		position: relative;
 		margin: 0;
+		padding-left: 20px;
 		width: calc(100% - 4rem);
 		max-width: 72rem;
-		z-index: 1;
+		z-index: 2;
 	}
 		#content > * {
 			padding: 4rem 4rem 2rem 4rem;
