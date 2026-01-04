@@ -37,6 +37,7 @@
                         <p class="section-title">Crypto</p>
                         <a href="#" class="tool-link" data-tool="token-gen">Token Generator</a>
                         <a href="#" class="tool-link" data-tool="hash-text">Hash Text</a>
+                        <a href="#" class="tool-link" data-tool="pass-analyser">Password Strangth Analyser</a>
                     </div>
 
                     <div class="nav-section">
@@ -116,8 +117,8 @@
                 </div>
 
             </div>
-       </section>
-       <section id="hash-text" class="tool-content">
+        </section>
+        <section id="hash-text" class="tool-content">
             <h2>Hash Text</h2>
             
             <textarea id="hash-input" placeholder="Enter text to hash..."></textarea>
@@ -199,7 +200,21 @@
             </div>
             
         </section>
-       <section id="http-status" class="tool-content">
+        <section id="pass-analyser" class="tool-content">
+            <h2>Password Strength Analyser</h2>
+            <label>Password</label>
+            <input type="password" id="pw-input" placeholder="Enter password">
+            
+            <div class="pw-meter">
+                <div class="pw-bar" id="pw-bar"></div>
+            </div>
+
+            <div class="pw-label" id="pw-label">Strength</div>
+
+            <ul class="pw-feedback" id="pw-feedback"></ul>
+
+        </section>
+        <section id="http-status" class="tool-content">
             <h2>HTTP Status</h2>
 
             <!--1xx-->
@@ -529,7 +544,7 @@
         <section id="outlook" class="tool-content">
             <h1>Outlook</h1>
         </section>
-       <section id="qr-code" class="tool-content">
+        <section id="qr-code" class="tool-content">
             <h2 id="tools-title">QR Code Generator</h2>
             <input type="text" id="qr-text" placeholder="Enter text or URL" size="60">
             <button onclick="generateQRCode()" id="qr-button">Generate QR Code</button>

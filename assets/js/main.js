@@ -445,6 +445,74 @@
 		);
 	});
 
+	/* =====================================================
+	PASSWORD STRENGTH ANALYZER
+	===================================================== */
+
+	var $pwInput = $('#pw-input');
+	var $pwBar = $('#pw-bar');
+	var $pwLabel = $('#pw-label');
+	var $pwFeedback = $('#pw-feedback');
+
+	function analyzePassword(pw) {
+		let score = 0;
+		let feedback = [];
+
+		if (pw.length >= 8) score += 20;
+		else feedback.push("Use at least 8 characters");
+
+		if (pw.length >= 12) score += 10;
+
+		if (/[a-z]/.test(pw)) score += 15;
+		else feedback.push("Add lowercase letters");
+
+		if (/[A-Z]/.test(pw)) score += 15;
+		else feedback.push("Add uppercase letters");
+
+		if (/\d/.test(pw)) score += 15;
+		else feedback.push("Add numbers");
+
+		if (/[^a-zA-Z0-9]/.test(pw)) score += 25;
+		else feedback.push("Add symbols");
+
+		return { score: Math.min(score, 100), feedback };
+	}
+
+	function updatePasswordUI() {
+		var pw = $pwInput.val();
+		var result = analyzePassword(pw);
+
+		$pwBar.css('width', result.score + '%');
+
+		let label, color;
+		if (result.score < 30) {
+			label = 'Very Weak';
+			color = '#ff4d4d';
+		} else if (result.score < 50) {
+			label = 'Weak';
+			color = '#ff944d';
+		} else if (result.score < 70) {
+			label = 'Okay';
+			color = '#ffd24d';
+		} else if (result.score < 90) {
+			label = 'Strong';
+			color = '#9dff4d';
+		} else {
+			label = 'Very Strong';
+			color = '#4dff88';
+		}
+
+		$pwBar.css('background', color);
+		$pwLabel.text(label);
+
+		$pwFeedback.empty();
+		result.feedback.forEach(msg => {
+			$pwFeedback.append(`<li>${msg}</li>`);
+		});
+	}
+
+	$pwInput.on('input', updatePasswordUI);
+
 	lucide.createIcons();
 
 })(jQuery);
