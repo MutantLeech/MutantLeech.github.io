@@ -1660,6 +1660,18 @@ body {
 		color: #fff;
 	}
 
+	/* Remove number input spinners - Chrome, Edge, Safari */
+	input[type=number]::-webkit-outer-spin-button,
+	input[type=number]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Remove number input spinners - Firefox */
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+
 	.converter-box .output {
 		flex: 1;          /* take remaining space */
 		color: #fff;
