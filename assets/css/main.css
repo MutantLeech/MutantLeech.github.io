@@ -1593,7 +1593,7 @@ body {
 	#tools-toggle {
 		display: block;
 		position: fixed;
-		top: 80px;
+		top: 20px;
 		left: 15px;
 		z-index: 1001;
 		padding: 10px 14px;
