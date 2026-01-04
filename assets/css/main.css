@@ -1536,6 +1536,33 @@ body {
 		max-width: 800px;
 		width: 100%;
 	}
+	#hash-text {
+		align-items: center;
+	}
+	#hash-text > h2 {
+		padding-bottom: 0px;
+		padding-top: 0px;
+	}
+	.hash-box {
+		align-items: center;
+		background: #2a2a2a;
+		padding: 20px;
+		border-radius: 10px;
+		max-width: 800px;
+		width: 100%;
+	}
+	.hash-box > label, span {
+		color: white;
+	}
+
+	.hash-row > button, i{
+		width: 1px;
+		height: 25px;
+	}
+	.hash-row > input {
+		width: 500px;
+		height: 25px;
+	}
 
 	.options {
 		display: grid;
@@ -1689,7 +1716,7 @@ body {
 /* Main */
 
 	#main.no-sidebar {
-		background-color: #ffffff;
+		background-color: #737373;
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -1880,7 +1907,7 @@ body {
 
 	#main.has-sidebar {
 		padding: 0;
-		background-color: #ffffff;
+		background-color: #737373;
 		position: relative;
 		margin: 0rem;
 		width: calc(100% - 4rem);
@@ -1974,7 +2001,7 @@ body {
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		display: none;
 		-webkit-overflow-scrolling: touch;
-		background: #ffffff;
+		background: #737373;
 		box-shadow: none;
 		color: #212931;
 		height: 100%;
