@@ -468,21 +468,11 @@
 
 		// Password scoring
 		if (pw.length >= 8) score += 20;
-		else feedback.push("Use at least 8 characters");
-
 		if (pw.length >= 12) score += 10;
-
 		if (/[a-z]/.test(pw)) score += 15;
-		else feedback.push("Add lowercase letters");
-
 		if (/[A-Z]/.test(pw)) score += 15;
-		else feedback.push("Add uppercase letters");
-
 		if (/\d/.test(pw)) score += 15;
-		else feedback.push("Add numbers");
-
 		if (/[^a-zA-Z0-9]/.test(pw)) score += 25;
-		else feedback.push("Add symbols");
 
 		// Entropy calculation
 		let entropy = pw.length * Math.log2(charsetSize || 1);
@@ -542,6 +532,7 @@
 
 		$pwBar.css('background', color);
 		$pwLabel.text(label);
+		$pwLabel.css('color', color)
 
 		// Feedback
 		$pwFeedback.empty();
