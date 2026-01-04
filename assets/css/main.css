@@ -1602,6 +1602,10 @@ body {
 		border: none;
 		border-radius: 6px;
 		cursor: pointer;
+		height: 0 !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		border: 0 !important;
 	}
 
 	/* Sidebar becomes drawer */
