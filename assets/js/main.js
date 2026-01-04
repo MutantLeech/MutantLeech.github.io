@@ -450,10 +450,10 @@
 	===================================================== */
 
 
-	/*var $pwInput = $('#pw-input');
+	var $pwInput = $('#pw-input');
 	var $pwBar = $('#pw-bar');
 	var $pwLabel = $('#pw-label');
-	var $pwFeedback = $('#pw-feedback');*/
+	var $pwFeedback = $('#pw-feedback');
 
 	function analyzePassword(pw) {
 		let score = 0;
