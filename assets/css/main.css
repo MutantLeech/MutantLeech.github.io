@@ -1158,7 +1158,7 @@ body {
 .sidebar {
   width: 192.5px;
   background: #141414;
-  padding: 16px;
+  padding-left: 16px;
   overflow-y: auto;
   border-right: 1px solid #2a2a2a;
 }
@@ -1879,13 +1879,20 @@ body {
 		}
 
 	#main.has-sidebar {
-		padding-right: 50px;
+		padding: 0;
 		background-color: #ffffff;
 		position: relative;
-		margin: 0 auto;
+		margin: 0rem;
 		width: calc(100% - 4rem);
 		max-width: 72rem;
 		z-index: 2;
+	}
+
+	@media (max-width: 768px) {
+		#main.has-sidebar {
+			padding-left: 1rem;
+			margin: 2rem;
+		}
 	}
 
 /* Nav Panel */
