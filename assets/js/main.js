@@ -445,4 +445,6 @@
 		);
 	});
 
+	lucide.createIcons();
+
 })(jQuery);
