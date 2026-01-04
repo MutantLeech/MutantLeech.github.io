@@ -1879,7 +1879,8 @@ body {
 		}
 
 	.has-sidebar {
-		padding-left: 0;
+		
+		gap: 0;
 	}
 
 /* Nav Panel */
