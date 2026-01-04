@@ -249,7 +249,6 @@
 
 		}
 
-		document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        TOKEN GENERATOR
@@ -382,103 +381,68 @@
 
 
     /* =====================================================
-       HASH TEXT TOOL (READY)
-    ===================================================== */
-    const hashButton = document.getElementById("hash-generate");
-    const hashInput = document.getElementById("hash-input");
-    const hashOutput = document.getElementById("hash-output");
+	HASH TEXT TOOL
+	===================================================== */
 
-    const hashAlgorithms = ["SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"];
+	var $hashInput = $('#hash-input');
+	var $hashEncoding = $('#hash-encoding');
+	var $hashRows = $('.hash-row');
 
-    const toHex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
-    const toBase64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
-    const toBase64Url = buf => toBase64(buf).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-    const toBinary = buf => [...new Uint8Array(buf)].map(b => b.toString(2).padStart(8, "0")).join(" ");
+	function encodeHash(wordArray, encoding) {
+		switch (encoding) {
+			case 'hex':
+				return wordArray.toString(CryptoJS.enc.Hex);
+			case 'base64':
+				return CryptoJS.enc.Base64.stringify(wordArray);
+			case 'base64url':
+				return CryptoJS.enc.Base64.stringify(wordArray)
+					.replace(/\+/g, '-')
+					.replace(/\//g, '_')
+					.replace(/=+$/, '');
+			case 'binary':
+				return wordArray.toString(CryptoJS.enc.Hex)
+					.match(/.{1,2}/g)
+					.map(b => parseInt(b, 16).toString(2).padStart(8, '0'))
+					.join(' ');
+		}
+	}
 
-    hashButton?.addEventListener("click", async () => {
-        hashOutput.innerHTML = "";
-        if (!hashInput.value) return;
+	function updateHashes() {
+		var text = $hashInput.val();
+		var encoding = $hashEncoding.val();
 
-        const data = new TextEncoder().encode(hashInput.value);
+		$hashRows.each(function () {
+			var algo = $(this).data('algo');
+			var $output = $(this).find('input');
 
-        for (const algo of hashAlgorithms) {
-            const hash = await crypto.subtle.digest(algo, data);
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${algo}</td>
-                <td>${toHex(hash)}</td>
-                <td>${toBase64(hash)}</td>
-                <td>${toBase64Url(hash)}</td>
-                <td>${toBinary(hash)}</td>
-            `;
-            hashOutput.appendChild(row);
-        }
-    });
+			if (!text) {
+				$output.val('');
+				return;
+			}
 
-});
+			var hash;
+			switch (algo) {
+				case 'MD5': hash = CryptoJS.MD5(text); break;
+				case 'SHA1': hash = CryptoJS.SHA1(text); break;
+				case 'SHA224': hash = CryptoJS.SHA224(text); break;
+				case 'SHA256': hash = CryptoJS.SHA256(text); break;
+				case 'SHA384': hash = CryptoJS.SHA384(text); break;
+				case 'SHA512': hash = CryptoJS.SHA512(text); break;
+				case 'SHA3': hash = CryptoJS.SHA3(text); break;
+				case 'RIPEMD160': hash = CryptoJS.RIPEMD160(text); break;
+			}
 
+			$output.val(encodeHash(hash, encoding));
+		});
+	}
 
-const hashAlgorithms = [
-    "SHA-1",
-    "SHA-224",
-    "SHA-256",
-    "SHA-384",
-    "SHA-512"
-];
+	$hashInput.on('input', updateHashes);
+	$hashEncoding.on('change', updateHashes);
 
-// ---------- Helpers ----------
-function bufferToHex(buffer) {
-    return [...new Uint8Array(buffer)]
-        .map(b => b.toString(16).padStart(2, "0"))
-        .join("");
-}
-
-function bufferToBase64(buffer) {
-    return btoa(String.fromCharCode(...new Uint8Array(buffer)));
-}
-
-function bufferToBase64Url(buffer) {
-    return bufferToBase64(buffer)
-        .replace(/\+/g, "-")
-        .replace(/\//g, "_")
-        .replace(/=+$/, "");
-}
-
-function bufferToBinary(buffer) {
-    return [...new Uint8Array(buffer)]
-        .map(b => b.toString(2).padStart(8, "0"))
-        .join(" ");
-}
-
-// ---------- Main ----------
-document.getElementById("hash-generate").addEventListener("click", async () => {
-    const input = document.getElementById("hash-input").value;
-    const output = document.getElementById("hash-output");
-
-    output.innerHTML = "";
-
-    if (!input) return;
-
-    const encoder = new TextEncoder();
-    const data = encoder.encode(input);
-
-    for (const algo of hashAlgorithms) {
-        try {
-            const hashBuffer = await crypto.subtle.digest(algo, data);
-
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${algo}</td>
-                <td>${bufferToHex(hashBuffer)}</td>
-                <td>${bufferToBase64(hashBuffer)}</td>
-                <td>${bufferToBase64Url(hashBuffer)}</td>
-                <td>${bufferToBinary(hashBuffer)}</td>
-            `;
-            output.appendChild(row);
-        } catch (e) {
-            console.warn(`Algorithm not supported: ${algo}`);
-        }
-    }
-});
+	$('.hash-row .copy').on('click', function () {
+		navigator.clipboard.writeText(
+			$(this).siblings('input').val()
+		);
+	});
 
 })(jQuery);

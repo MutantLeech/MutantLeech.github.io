@@ -122,23 +122,64 @@
 
             <textarea id="hash-input" placeholder="Enter text to hash..."></textarea>
 
-            <div class="buttons">
-                <button id="hash-generate">Generate Hashes</button>
-            </div>
+            <hr>
 
-            <div class="hash-results">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Algorithm</th>
-                            <th>Hex</th>
-                            <th>Base64</th>
-                            <th>Base64URL</th>
-                            <th>Binary</th>
-                        </tr>
-                    </thead>
-                    <tbody id="hash-output"></tbody>
-                </table>
+            <label>Digest encoding</label>
+            <select id="hash-encoding">
+                <option value="hex">Hexadecimal (base 16)</option>
+                <option value="base64">Base64</option>
+                <option value="base64url">Base64 URL-safe</option>
+                <option value="binary">Binary</option>
+            </select>
+
+            <div class="hash-list">
+                <div class="hash-row" data-algo="MD5">
+                    <span>MD5</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA1">
+                    <span>SHA1</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA256">
+                    <span>SHA256</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA224">
+                    <span>SHA224</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA512">
+                    <span>SHA512</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA384">
+                    <span>SHA384</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="SHA3">
+                    <span>SHA3</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
+
+                <div class="hash-row" data-algo="RIPEMD160">
+                    <span>RIPEMD160</span>
+                    <input readonly>
+                    <button class="copy">📋</button>
+                </div>
             </div>
         </section>
        <section id="http-status" class="tool-content">
@@ -520,6 +561,7 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
