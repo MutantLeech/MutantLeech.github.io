@@ -1611,6 +1611,76 @@ body {
 		color: #ffffff; /* emphasize the label */
 	}
 
+	#pdf-sign {
+		align-items: center;
+	}
+
+	.pdf-box {
+		align-items: center;
+		background: #2a2a2a;
+		padding: 50px;
+		border-radius: 10px;
+		max-width: 800px;
+		width: 100%;
+	}
+
+	.pdf-box > label {
+		color: #ffffff;
+	}
+
+
+	.roman-converter {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-top: 10px;
+	}
+	.converter-box {
+		display: flex;
+		align-items: center;
+		background-color: #2a2a2a;
+		color: #ffffff;
+		padding: 15px;
+		border-radius: 10px;
+		margin-bottom: 15px;
+		gap: 10px;
+	}
+
+	.box-title {
+		min-width: 120px;
+		font-size: 14px;
+	}
+
+	.converter-box input {
+		width: 150px;
+		padding: 8px 10px;
+		border: none;
+		border-radius: 6px;
+		background-color: #3a3a3a; 
+		color: #fff;
+	}
+
+	.converter-box .output {
+		flex: 1;          /* take remaining space */
+		color: #fff;
+		font-size: 16px;
+		text-align: left; /* aligns text to the right side */
+		min-height: 35px;  /* aligns vertically with input */
+	}
+
+	.copy-btn {
+		background-color: #444;
+		color: #fff;
+		border: none;
+		padding: 8px 12px;
+		border-radius: 6px;
+		cursor: pointer;
+	}
+
+	.copy-btn:hover {
+		background-color: #555;
+	}
+
 	.options {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

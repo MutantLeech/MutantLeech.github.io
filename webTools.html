@@ -37,7 +37,17 @@
                         <p class="section-title">Crypto</p>
                         <a href="#" class="tool-link" data-tool="token-gen">Token Generator</a>
                         <a href="#" class="tool-link" data-tool="hash-text">Hash Text</a>
-                        <a href="#" class="tool-link" data-tool="pass-analyser">Password Strangth Analyser</a>
+                        <a href="#" class="tool-link" data-tool="pass-analyser">Password Strength Analyser</a>
+                        <a href="#" class="tool-link" data-tool="pdf-sign">PDF Signature Checker</a>
+                    </div>
+
+                    <div class="nav-section">
+                        <p class="section-title">Converter</p>
+                        <a href="#" class="tool-link" data-tool="roman-num">Roman Numeral Converter</a>
+                        <a href="#" class="tool-link" data-tool="color-con">Color Converter</a>
+                        <a href="#" class="tool-link" data-tool="text-nato">Text to NATO Alphabet</a>
+                        <a href="#" class="tool-link" data-tool="text-ascii">Text to ASCII BInary</a>
+                        <a href="#" class="tool-link" data-tool="list-con">List Converter</a>
                     </div>
 
                     <div class="nav-section">
@@ -216,6 +226,15 @@
             <div class="pw-label" id="pw-label">Strength</div>
 
             <ul class="pw-feedback" id="pw-feedback"></ul>
+            </div>
+        </section>
+        <section id="pdf-sign" class="tool-content">
+            <h2>PDF Signature Checker</h2>
+
+            <div class="pdf-box">
+                <label>Select PDF file:</label>
+                <input type="file" id="pdf-file" accept=".pdf">
+                <div id="pdf-sign-result"></div>
             </div>
         </section>
         <section id="http-status" class="tool-content">
@@ -542,6 +561,24 @@
                     </div>
                 </div>
         </section>
+        <section id="roman-num" class="tool-content">
+            <h2>Roman Numeral Converter</h2>
+                <!-- Number to Roman -->
+                <div class="converter-box">
+                    <label class="box-title">Number to Roman:</label>
+                    <input type="number" id="num-input" placeholder="Enter a number (1-3999)">
+                    <div id="roman-output" class="output"></div>
+                    <button class="copy-btn" data-target="roman-output">Copy</button>
+                </div>
+
+                <!-- Roman to Number -->
+                <div class="converter-box">
+                    <label class="box-title">Roman to Number:</label>
+                    <input type="text" id="roman-input" placeholder="Enter a Roman numeral (I - MMMCMXCIX)">
+                    <div id="num-output" class="output"></div>
+                    <button class="copy-btn" data-target="num-output">Copy</button>
+                </div>
+        </section>
         <section id="json-diff" class="tool-content">
             <h1>JSON</h1>
         </section>
@@ -595,6 +632,8 @@
 			</div>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.246/pdf.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>

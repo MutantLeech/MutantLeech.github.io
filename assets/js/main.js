@@ -555,6 +555,103 @@
 
 	$pwInput.on('input', updatePasswordUI);
 
+	document.getElementById('pdf-file').addEventListener('change', async (event) => {
+		pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.246/pdf.worker.min.js';
+		const file = event.target.files[0];
+		const resultDiv = document.getElementById('pdf-sign-result');
+		resultDiv.innerHTML = '';
+
+		if (!file) return;
+
+		// Show loading message
+		resultDiv.innerHTML = '<p>Checking PDF...</p>';
+
+		try {
+			const arrayBuffer = await file.arrayBuffer();
+			const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+			let signaturesFound = [];
+
+			for (let i = 1; i <= pdf.numPages; i++) {
+				const page = await pdf.getPage(i);
+				const annotations = await page.getAnnotations();
+
+				annotations.forEach(annotation => {
+					if (annotation.subtype === 'Widget' && annotation.fieldType === 'Sig') {
+						signaturesFound.push(i);
+					}
+				});
+			}
+
+			if (signaturesFound.length > 0) {
+				resultDiv.innerHTML = `<p style="color:green;">Signature found on page(s): ${signaturesFound.join(', ')}</p>`;
+			} else {
+				resultDiv.innerHTML = '<p style="color:orange;">No digital signatures found in this PDF.</p>';
+			}
+		} catch (err) {
+			console.error(err);
+			resultDiv.innerHTML = `<p style="color:red;">Error reading PDF: ${err.message}</p>`;
+		}
+	});
+
+	document.addEventListener('DOMContentLoaded', () => {
+		const numInput = document.getElementById('num-input');
+		const romanOutput = document.getElementById('roman-output');
+		const romanInput = document.getElementById('roman-input');
+		const numOutput = document.getElementById('num-output');
+
+		const romanMap = [
+			{ val: 1000, sym: 'M' },
+			{ val: 900, sym: 'CM' },
+			{ val: 500, sym: 'D' },
+			{ val: 400, sym: 'CD' },
+			{ val: 100, sym: 'C' },
+			{ val: 90, sym: 'XC' },
+			{ val: 50, sym: 'L' },
+			{ val: 40, sym: 'XL' },
+			{ val: 10, sym: 'X' },
+			{ val: 9, sym: 'IX' },
+			{ val: 5, sym: 'V' },
+			{ val: 4, sym: 'IV' },
+			{ val: 1, sym: 'I' },
+		];
+
+		function toRoman(num) {
+			if (num < 1 || num > 3999) return 'Out of range';
+			let result = '';
+			for (let {val, sym} of romanMap) {
+				while (num >= val) {
+					result += sym;
+					num -= val;
+				}
+			}
+			return result;
+		}
+
+		function fromRoman(str) {
+			str = str.toUpperCase();
+			let index = 0;
+			let num = 0;
+			for (let {val, sym} of romanMap) {
+				while (str.slice(index, index + sym.length) === sym) {
+					num += val;
+					index += sym.length;
+				}
+			}
+			return index === str.length ? num : 'Invalid Roman numeral';
+		}
+
+		numInput.addEventListener('input', () => {
+			const value = parseInt(numInput.value, 10);
+			romanOutput.textContent = isNaN(value) ? '' : toRoman(value);
+		});
+
+		romanInput.addEventListener('input', () => {
+			const value = romanInput.value.trim();
+			numOutput.textContent = value ? fromRoman(value) : '';
+		});
+	});
+
 	lucide.createIcons();
 
 })(jQuery);
