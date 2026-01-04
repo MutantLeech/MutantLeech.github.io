@@ -1878,9 +1878,8 @@ body {
 
 		}
 
-	.has-sidebar {
-		
-		gap: 0;
+	#main.has-sidebar {
+		padding-left: 0;
 	}
 
 /* Nav Panel */
