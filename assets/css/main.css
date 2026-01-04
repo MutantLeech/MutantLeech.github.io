@@ -1589,9 +1589,6 @@ body {
 	/* Tablet & mobile */
 @media (max-width: 900px) {
 
-	.app {
-		flex-direction: column;
-	}
 	/* Show hamburger */
 	#tools-toggle {
 		display: block;
