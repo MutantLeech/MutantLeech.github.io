@@ -457,7 +457,15 @@
 	function analyzePassword(pw) {
 		let score = 0;
 		let feedback = [];
+		let charsetSize = 0;
 
+		// Character set calculation
+		if (/[a-z]/.test(pw)) charsetSize += 26;
+		if (/[A-Z]/.test(pw)) charsetSize += 26;
+		if (/\d/.test(pw)) charsetSize += 10;
+		if (/[^a-zA-Z0-9]/.test(pw)) charsetSize += 32; // common symbols
+
+		// Password scoring
 		if (pw.length >= 8) score += 20;
 		else feedback.push("Use at least 8 characters");
 
@@ -475,7 +483,36 @@
 		if (/[^a-zA-Z0-9]/.test(pw)) score += 25;
 		else feedback.push("Add symbols");
 
-		return { score: Math.min(score, 100), feedback };
+		// Entropy calculation
+		let entropy = pw.length * Math.log2(charsetSize || 1);
+
+		// Estimated brute-force time
+		const guessesPerSecond = 1e9; // 1 billion guesses/sec
+		let timeSeconds = Math.pow(2, entropy) / guessesPerSecond;
+
+		// Convert time to readable format
+		function formatTime(seconds) {
+			const units = [
+				{ label: "years", value: 60*60*24*365 },
+				{ label: "days", value: 60*60*24 },
+				{ label: "hours", value: 60*60 },
+				{ label: "minutes", value: 60 },
+				{ label: "seconds", value: 1 }
+			];
+			for (let unit of units) {
+				if (seconds >= unit.value) return Math.round(seconds / unit.value) + " " + unit.label;
+			}
+			return "< 1 second";
+		}
+
+		return {
+			score: Math.min(score, 100),
+			feedback,
+			length: pw.length,
+			charsetSize,
+			entropy: entropy.toFixed(2),
+			crackTime: formatTime(timeSeconds)
+		};
 	}
 
 	function updatePasswordUI() {
@@ -505,10 +542,23 @@
 		$pwBar.css('background', color);
 		$pwLabel.text(label);
 
+		// Feedback
 		$pwFeedback.empty();
 		result.feedback.forEach(msg => {
 			$pwFeedback.append(`<li>${msg}</li>`);
 		});
+
+		// Additional info
+		if ($('#pw-info').length === 0) {
+			$pwFeedback.after(`<ul id="pw-info" class="pw-feedback"></ul>`);
+		}
+		const $pwInfo = $('#pw-info');
+		$pwInfo.html(`
+			<li><strong>Password length:</strong> ${result.length}</li>
+			<li><strong>Entropy:</strong> ${result.entropy} bits</li>
+			<li><strong>Character set size:</strong> ${result.charsetSize}</li>
+			<li><strong>Estimated crack time:</strong> ${result.crackTime}</li>
+		`);
 	}
 
 	$pwInput.on('input', updatePasswordUI);
