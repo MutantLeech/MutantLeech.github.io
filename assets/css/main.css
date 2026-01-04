@@ -1637,6 +1637,7 @@ body {
 	}
 	.converter-box {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		background-color: #2a2a2a;
 		color: #ffffff;
@@ -1652,12 +1653,20 @@ body {
 	}
 
 	.converter-box input {
-		width: 150px;
+		width: 400px;
+		height: 40px;
 		padding: 8px 10px;
 		border: none;
 		border-radius: 6px;
 		background-color: #3a3a3a; 
 		color: #fff;
+	}
+
+	.input-row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
 	}
 
 	/* Remove number input spinners - Chrome, Edge, Safari */
@@ -1672,7 +1681,7 @@ body {
 		-moz-appearance: textfield;
 	}
 
-	.converter-box .output {
+	.converter-box .output{
 		flex: 1;          /* take remaining space */
 		color: #fff;
 		font-size: 16px;

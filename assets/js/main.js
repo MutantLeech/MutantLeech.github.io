@@ -617,7 +617,7 @@
 		];
 
 		function toRoman(num) {
-			if (num < 1 || num > 3999) return 'Out of range';
+			if (num < 1 || num > 3999) return 'Out of range enter between 1 & 3999';
 			let result = '';
 			for (let {val, sym} of romanMap) {
 				while (num >= val) {
@@ -649,6 +649,23 @@
 		romanInput.addEventListener('input', () => {
 			const value = romanInput.value.trim();
 			numOutput.textContent = value ? fromRoman(value) : '';
+		});
+	});
+
+	const copyButtons = document.querySelectorAll('.copyBtn');
+
+	copyButtons.forEach(button => {
+		button.addEventListener('click', () => {
+		// Get the ID of the div to copy from the button's data attribute
+		const targetId = button.getAttribute('data-target');
+		const textToCopy = document.getElementById(targetId).textContent;
+
+		// Copy to clipboard
+		navigator.clipboard.writeText(textToCopy).then(() => {
+			alert(`Copied text from ${targetId}!`);
+		}).catch(err => {
+			console.error('Failed to copy text: ', err);
+		});
 		});
 	});
 
