@@ -1688,7 +1688,7 @@ body {
 
 /* Main */
 
-	#main {
+	#main.no-sidebar {
 		background-color: #ffffff;
 		position: relative;
 		margin: 0 auto;
@@ -1879,7 +1879,7 @@ body {
 		}
 
 	#main.has-sidebar {
-		padding-left: -20px;
+		padding-right: 50px;
 	}
 
 /* Nav Panel */
