@@ -1230,6 +1230,7 @@ body {
 
 		#nav ul.divided li {
 			border-top-color: #ffffff;
+			color: #ffffff;
 		}
 
 		#nav ul.icons li a.icon:hover:before {
