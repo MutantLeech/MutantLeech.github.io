@@ -669,6 +669,83 @@
 		});
 	});
 
+
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const colorInput = document.getElementById("colorInput");
+		const hexValue = document.getElementById("hexValue");
+		const rgbValue = document.getElementById("rgbValue");
+		const hslValue = document.getElementById("hslValue");
+		const hwbValue = document.getElementById("hwbValue");
+		const nameValue = document.getElementById("nameValue");
+		const lchValue = document.getElementById("lchValue");
+		const cmykValue = document.getElementById("cmykValue");
+
+		const colorNames = {
+			"#ffffff": "White",
+			"#000000": "Black",
+			"#ff0000": "Red",
+			"#00ff00": "Lime",
+			"#0000ff": "Blue",
+			"#ffff00": "Yellow",
+			"#00ffff": "Cyan",
+			"#ff00ff": "Magenta",
+			"#808080": "Gray"
+		};
+
+		function rgbToHsl(r, g, b) {
+			r/=255; g/=255; b/=255;
+			let max=Math.max(r,g,b), min=Math.min(r,g,b), h, s, l=(max+min)/2;
+			if(max===min){h=s=0;} else{
+				let d=max-min; s=l>0.5? d/(2-max-min) : d/(max+min);
+				switch(max){case r: h=(g-b)/d+(g<b?6:0); break; case g: h=(b-r)/d+2; break; case b: h=(r-g)/d+4; break;}
+				h/=6;
+			}
+			return `hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;
+		}
+
+		function rgbToHwb(r, g, b) {
+			let w = Math.min(r,g,b)/255;
+			let b_ = 1 - Math.max(r,g,b)/255;
+			return `hwb(${rgbToHsl(r,g,b).match(/\d+/)[0]}, ${Math.round(w*100)}%, ${Math.round(b_*100)}%)`;
+		}
+
+		function rgbToCmyk(r, g, b) {
+			let c=1-(r/255), m=1-(g/255), y=1-(b/255), k=Math.min(c,m,y);
+			if(k===1) return "cmyk(0%,0%,0%,100%)";
+			c=(c-k)/(1-k); m=(m-k)/(1-k); y=(y-k)/(1-k);
+			return `cmyk(${Math.round(c*100)}%,${Math.round(m*100)}%,${Math.round(y*100)}%,${Math.round(k*100)}%)`;
+		}
+
+		function updateColors() {
+			const hex = colorInput.value;
+			hexValue.textContent = hex.toUpperCase();
+
+			const r = parseInt(hex.slice(1,3),16);
+			const g = parseInt(hex.slice(3,5),16);
+			const b = parseInt(hex.slice(5,7),16);
+
+			rgbValue.textContent = `rgb(${r}, ${g}, ${b})`;
+			hslValue.textContent = rgbToHsl(r,g,b);
+			hwbValue.textContent = rgbToHwb(r,g,b);
+			cmykValue.textContent = rgbToCmyk(r,g,b);
+			lchValue.textContent = "LCH conversion requires advanced math"; // placeholder
+			nameValue.textContent = colorNames[hex.toLowerCase()] || "Unknown";
+		}
+
+		// Lazy initialization: only activate when tab clicked
+		let colorConverterInitialized = false;
+		document.querySelectorAll(".tool-link").forEach(link => {
+			link.addEventListener("click", (e) => {
+				const tool = link.dataset.tool;
+				if(tool === "color-con" && !colorConverterInitialized) {
+					colorInput.addEventListener("input", updateColors);
+					colorConverterInitialized = true;
+				}
+			});
+		});
+	});
+
 	lucide.createIcons();
 
 })(jQuery);

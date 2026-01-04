@@ -1676,11 +1676,6 @@ body {
 		margin: 0;
 	}
 
-	/* Remove number input spinners - Firefox */
-	input[type=number] {
-		-moz-appearance: textfield;
-	}
-
 	.converter-box .output{
 		flex: 1;          /* take remaining space */
 		color: #fff;
@@ -1700,6 +1695,36 @@ body {
 
 	.copy-btn:hover {
 		background-color: #555;
+	}
+
+
+    .color-picker-box input {
+        width: 100%;
+        height: 60px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .color-outputs {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .color-output {
+        background: #3a3a3a;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .color-output span {
+        font-family: monospace;
+        margin-left: 5px;
+    }
+	.color-output strong {
+		color: #4934c1;
 	}
 
 	.options {
@@ -2197,7 +2222,7 @@ body {
 			right: 0;
 			text-align: right;
 			top: 0;
-			vertical-align: middle;
+			
 			width: 7rem;
 		}
 
