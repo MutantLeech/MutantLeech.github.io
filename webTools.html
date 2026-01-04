@@ -26,6 +26,9 @@
 						</ul>
 					</nav>
             <div class="app">
+                <button id="tools-toggle" aria-label="Toggle tools">
+                    ☰ Tools
+                </button>
                 <aside class="sidebar">
                 <h2 class="sidebar-title">Tools</h2>
 
@@ -620,6 +623,21 @@
     }
     </script>
 
+    <script>
+        const toolsToggle = document.getElementById("tools-toggle");
+        const sidebar = document.querySelector(".sidebar");
+
+        toolsToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        // Close sidebar when a tool is clicked (mobile UX)
+        document.querySelectorAll(".tool-link").forEach(link => {
+            link.addEventListener("click", () => {
+            sidebar.classList.remove("open");
+            });
+        });
+    </script>
     
 
     <script src="assets/js/jquery.min.js"></script>
