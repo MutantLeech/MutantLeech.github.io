@@ -1673,7 +1673,7 @@ body {
 
 	@media (max-width: 700px) {
 		.converter-box input {
-			width: 100px;
+			width: 150px;
 		}
 		
 	}
