@@ -603,6 +603,44 @@
 
             </div>
         </section>
+        <section id="text-nato" class="tool-content">
+            <h2>Text to NATO</h2>
+
+            <div class="converter-box">
+                <label for="nato-input">Enter text:</label>
+                <textarea id="nato-input" placeholder="Type text here..."></textarea>
+
+                <div class="buttons">
+                    <button id="nato-clear">Clear</button>
+                    <button id="copyBtn" data-target="nato-output">Copy Output</button>
+                </div>
+
+                <div class="nato-output" id="nato-output"></div>
+            </div>
+        </section>
+        <section id="text-ascii" class="tool-content">
+            <h2>Text to ASCII Conversion</h2>
+
+            <!-- Text to Binary -->
+            <div class="converter-box">
+                <label class="box-title">Text to Binary:</label>
+                <div class="input-row">
+                    <input type="text" id="ascii-text-input" placeholder="Enter text">
+                    <div id="ascii-binary-output" class="output"></div>
+                    <button class="copyBtn" data-target="ascii-binary-output">Copy</button>
+                </div>
+            </div>
+
+            <!-- Binary to Text -->
+            <div class="converter-box">
+                <label class="box-title">Binary to Text:</label>
+                <div class="input-row">
+                    <input type="text" id="ascii-binary-input" placeholder="Enter binary (8-bit groups)">
+                    <div id="ascii-text-output" class="output"></div>
+                    <button class="copyBtn" data-target="ascii-text-output">Copy</button>
+                </div>
+            </div>
+        </section>
         <section id="json-diff" class="tool-content">
             <h1>JSON</h1>
         </section>

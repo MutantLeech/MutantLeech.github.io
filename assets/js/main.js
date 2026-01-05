@@ -746,6 +746,84 @@
 		});
 	});
 
+	const natoAlphabet = {
+        A: "Alpha",   B: "Bravo",   C: "Charlie", D: "Delta",
+        E: "Echo",    F: "Foxtrot", G: "Golf",    H: "Hotel",
+        I: "India",   J: "Juliett", K: "Kilo",    L: "Lima",
+        M: "Mike",    N: "November",O: "Oscar",  P: "Papa",
+        Q: "Quebec",  R: "Romeo",   S: "Sierra",  T: "Tango",
+        U: "Uniform", V: "Victor",  W: "Whiskey", X: "X-ray",
+        Y: "Yankee",  Z: "Zulu"
+    };
+
+    const $input = $("#nato-input");
+    const $output = $("#nato-output");
+
+    if (!$input.length) return;
+
+    $input.on("input", function () {
+		const text = $(this).val();
+		let result = [];
+
+		for (const char of text) {
+			const upper = char.toUpperCase();
+
+			if (natoAlphabet[upper]) {
+				result.push(natoAlphabet[upper]);
+			} else {
+				// Pass through unmapped characters unchanged
+				result.push(char);
+			}
+		}
+
+		$output.text(result.join(" "));
+	});
+
+    $("#nato-clear").on("click", () => {
+        $input.val("");
+        $output.text("");
+    });
+
+    $("#nato-copy").on("click", () => {
+        navigator.clipboard.writeText($output.text());
+    });
+
+
+
+	const $textIn = $("#ascii-text-input");
+    const $binOut = $("#ascii-binary-output");
+    const $binIn = $("#ascii-binary-input");
+    const $textOut = $("#ascii-text-output");
+
+    if (!$textIn.length) return;
+
+    // Text → Binary
+    $textIn.on("input", function () {
+        const text = $(this).val();
+        const binary = [];
+
+        for (const char of text) {
+            const code = char.charCodeAt(0);
+            binary.push(code.toString(2).padStart(8, "0"));
+        }
+
+        $binOut.text(binary.join(" "));
+    });
+
+    // Binary → Text
+    $binIn.on("input", function () {
+        const binary = $(this).val().trim().split(/\s+/);
+        let text = "";
+
+        for (const bin of binary) {
+            if (/^[01]{8}$/.test(bin)) {
+                text += String.fromCharCode(parseInt(bin, 2));
+            }
+        }
+
+        $textOut.text(text);
+    });
+
 	lucide.createIcons();
 
 })(jQuery);

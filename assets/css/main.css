@@ -1883,6 +1883,22 @@ body {
 		margin-bottom: 4px;
 	}
 
+	#text-nato textarea {
+		width: 100%;
+		min-height: 100px;
+		resize: vertical;
+	}
+
+	.nato-output {
+		margin-top: 1rem;
+		padding: 1rem;
+		background: rgba(255,255,255,0.05);
+		border-radius: 6px;
+		line-height: 1.6;
+		font-family: monospace;
+	}
+
+
 /* Main */
 
 	#main.no-sidebar {
@@ -1947,6 +1963,17 @@ body {
 
 	#main .endingfooter {
 		color :#1e252d;
+	}
+
+	@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .copyBtn {
+        width: 100%;
+    }
 	}
 
 /* Nav Panel */
