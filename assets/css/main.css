@@ -1660,7 +1660,7 @@ body {
 	}
 
 	.converter-box input {
-		width: 100%px;
+		width: 100%;
 		max-width: 400px;
 		height: 40px;
 		padding: 8px 10px;
