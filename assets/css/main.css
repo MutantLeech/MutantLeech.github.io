@@ -1660,13 +1660,15 @@ body {
 	}
 
 	.converter-box input {
-		width: 400px;
+		width: 100%px;
+		max-width: 400px;
 		height: 40px;
 		padding: 8px 10px;
 		border: none;
 		border-radius: 6px;
 		background-color: #3a3a3a; 
 		color: #fff;
+		box-sizing: border-box;
 	}
 
 	.input-row {
