@@ -824,6 +824,54 @@
         $textOut.text(text);
     });
 
+	$(document).ready(function () {
+		const $input = $("#list-input");
+		const $output = $("#list-output");
+
+		if (!$input.length) return;
+
+		$(".list-options input, .list-options select, #list-input").on("input change", convertList);
+
+		function convertList() {
+			let items = $input.val().split(/\r?\n/);
+
+			if ($("#opt-trim").is(":checked")) {
+				items = items.map(i => i.trim());
+			}
+
+			items = items.filter(i => i !== "");
+
+			if ($("#opt-lower").is(":checked")) {
+				items = items.map(i => i.toLowerCase());
+			}
+
+			if ($("#opt-dedupe").is(":checked")) {
+				items = [...new Set(items)];
+			}
+
+			const sort = $("#opt-sort").val();
+			if (sort === "asc") items.sort();
+			if (sort === "desc") items.sort().reverse();
+
+			const itemPrefix = $("#opt-item-prefix").val();
+			const itemSuffix = $("#opt-item-suffix").val();
+
+			items = items.map(i => `${itemPrefix}${i}${itemSuffix}`);
+
+			const separator = $("#opt-separator").val() || "\n";
+			let output = items.join(
+				$("#opt-keep-lines").is(":checked") ? "\n" : separator
+			);
+
+			const listPrefix = $("#opt-list-prefix").val();
+			const listSuffix = $("#opt-list-suffix").val();
+
+			output = `${listPrefix}${output}${listSuffix}`;
+
+			$output.val(output);
+		}
+	});
+
 	lucide.createIcons();
 
 })(jQuery);

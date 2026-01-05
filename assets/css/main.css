@@ -1899,6 +1899,108 @@ body {
 	}
 
 
+	.list-options {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.list-options label {
+		color: white;
+		font-size: 0.9rem;
+	}
+
+	.list-options input,
+	.list-options select {
+		width: 100%;
+		margin-top: 0.25rem;
+	}
+
+	.list-io {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.list-io textarea {
+		width: 100%;
+		min-height: 220px;
+		resize: vertical;
+		padding: 0.75rem;
+		border-radius: 6px;
+		border: none;
+	}
+
+	.toggle-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 0.6rem;
+		font-size: 0.9rem;
+		color: #fff;
+	}
+
+	.options-left,
+	.options-right {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+		/* Switch container */
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 36px;
+		height: 20px;
+	}
+
+		/* Hide default checkbox */
+	.switch input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+		/* Slider track */
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		inset: 0;
+		background-color: #444;
+		border-radius: 999px;
+		transition: background-color 0.2s;
+	}
+
+		/* Slider knob */
+	.slider::before {
+		content: "";
+		position: absolute;
+		height: 14px;
+		width: 14px;
+		left: 3px;
+		top: 3px;
+		background-color: #fff;
+		border-radius: 50%;
+		transition: transform 0.2s;
+	}
+
+		/* Checked state */
+	.switch input:checked + .slider {
+		background-color: #3cb371; /* green like screenshot */
+	}
+
+	.switch input:checked + .slider::before {
+		transform: translateX(16px);
+	}
+
+	@media (max-width: 700px) {
+		.list-io {
+			grid-template-columns: 1fr;
+		}
+	}
+
 /* Main */
 
 	#main.no-sidebar {
@@ -1966,14 +2068,14 @@ body {
 	}
 
 	@media (max-width: 600px) {
-    .input-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
+		.input-row {
+			flex-direction: column;
+			align-items: stretch;
+		}
 
-    .copyBtn {
-        width: 100%;
-    }
+		.copyBtn {
+			width: 100%;
+		}
 	}
 
 /* Nav Panel */

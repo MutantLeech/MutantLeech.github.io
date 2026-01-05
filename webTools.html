@@ -641,6 +641,96 @@
                 </div>
             </div>
         </section>
+        <section id="list-con" class="tool-content">
+            <h2>List Converter</h2>
+
+            <!-- Options -->
+            <div class="converter-box">
+                <div class="list-options">
+
+                    <div class="options-left">
+                        <div class="toggle-row">
+                            <span>Trim list items</span>
+                            <label class="switch">
+                                <input type="checkbox" id="opt-trim" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>Remove duplicates</span>
+                            <label class="switch">
+                                <input type="checkbox" id="opt-dedupe" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>Convert to lowercase</span>
+                            <label class="switch">
+                                <input type="checkbox" id="opt-lower">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-row">
+                            <span>Keep line breaks</span>
+                            <label class="switch">
+                                <input type="checkbox" id="opt-lines">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="options-right">
+                        <div>
+                        <span>Sort:</span>
+                        <label>
+                            <select id="opt-sort">
+                                <option value="none">None</option>
+                                <option value="asc">A → Z</option>
+                                <option value="desc">Z → A</option>
+                            </select>
+                        </label>
+                        </div>
+                        
+                        <div>
+                            <span>Separator:</span>
+                        <label>
+                            Separator:
+                            <input type="text" id="opt-separator" placeholder="e.g. ,">
+                        </label>
+                        </div>
+
+                        <label>
+                            Wrap item:
+                            <input type="text" id="opt-item-prefix" placeholder="Prefix">
+                            <input type="text" id="opt-item-suffix" placeholder="Suffix">
+                        </label>
+
+                        <label>
+                            Wrap list:
+                            <input type="text" id="opt-list-prefix" placeholder="Prefix">
+                            <input type="text" id="opt-list-suffix" placeholder="Suffix">
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Input / Output -->
+            <div class="converter-box list-io">
+                <div class="list-input">
+                    <label class="box-title">Input</label>
+                    <textarea id="list-input" placeholder="Enter list items..."></textarea>
+                </div>
+
+                <div class="list-output">
+                    <label class="box-title">Output</label>
+                    <textarea id="list-output" readonly></textarea>
+                </div>
+            </div>
+        </section>
         <section id="json-diff" class="tool-content">
             <h1>JSON</h1>
         </section>
