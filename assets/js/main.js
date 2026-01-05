@@ -872,6 +872,26 @@
 		}
 	});
 
+	const usernameInput = document.getElementById('username');
+	const passwordInput = document.getElementById('password');
+	const authHeaderOutput = document.getElementById('auth-header');
+
+	function updateAuthHeader() {
+		const username = usernameInput.value.trim();
+		const password = passwordInput.value;
+
+		if (!username && !password) {
+		authHeaderOutput.value = '';
+		return;
+		}
+
+		const base64 = btoa(`${username}:${password}`);
+		authHeaderOutput.value = `Authorization: Basic ${base64}`;
+	}
+
+	usernameInput.addEventListener('input', updateAuthHeader);
+	passwordInput.addEventListener('input', updateAuthHeader);
+
 	lucide.createIcons();
 
 })(jQuery);
